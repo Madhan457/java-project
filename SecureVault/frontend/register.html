@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f9fc">
+    <title>Create account | SecureVault</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/register.js" defer></script>
+</head>
+
+<body class="auth-page">
+    <main class="auth-layout">
+        <section class="auth-story" aria-label="SecureVault">
+            <a class="brand" href="index.html" aria-label="SecureVault home">
+                <span class="brand-mark" aria-hidden="true"></span>
+                <span>SecureVault</span>
+            </a>
+            <div class="story-copy">
+                <p class="eyebrow">A PRIVATE PLACE FOR FILES</p>
+                <h1>Protection,<br>within reach.</h1>
+                <p>Create your account, then choose a separate encryption password for each file.</p>
+            </div>
+            <div class="story-note"><span class="status-dot"></span> Your encryption password is never saved</div>
+        </section>
+
+        <section class="auth-panel" aria-labelledby="register-title">
+            <div class="auth-card">
+                <div class="mobile-brand"><span class="brand-mark" aria-hidden="true"></span> SecureVault</div>
+                <p class="eyebrow">GET STARTED</p>
+                <h2 id="register-title">Create your account</h2>
+                <p class="muted">A few details and your vault is ready.</p>
+                <div id="form-message" class="form-message" role="status" aria-live="polite" hidden></div>
+                <form id="register-form" class="form-stack">
+                    <label for="name">Full name</label>
+                    <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required
+                        maxlength="100">
+                    <label for="email">Email address</label>
+                    <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com"
+                        required maxlength="150">
+                    <label for="password">Account password</label>
+                    <input id="password" name="password" type="password" autocomplete="new-password"
+                        placeholder="At least 10 characters" required minlength="10" maxlength="72">
+                    <label for="confirm-password">Confirm password</label>
+                    <input id="confirm-password" name="confirm-password" type="password" autocomplete="new-password"
+                        placeholder="Enter it again" required minlength="10" maxlength="72">
+                    <button class="button button-primary button-wide" type="submit">Create account <span
+                            aria-hidden="true">&#8594;</span></button>
+                </form>
+                <p class="auth-switch">Already have an account? <a href="index.html">Sign in</a></p>
+            </div>
+            <footer class="auth-footer">Account passwords are protected with BCrypt hashing.</footer>
+        </section>
+    </main>
+</body>
+
+</html>

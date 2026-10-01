@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f9fc">
+    <title>Sign in | SecureVault</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/login.js" defer></script>
+</head>
+
+<body class="auth-page">
+    <main class="auth-layout">
+        <section class="auth-story" aria-label="SecureVault">
+            <a class="brand" href="index.html" aria-label="SecureVault home">
+                <span class="brand-mark" aria-hidden="true"></span>
+                <span>SecureVault</span>
+            </a>
+            <div class="story-copy">
+                <p class="eyebrow">PRIVATE BY DESIGN</p>
+                <h1>Your files.<br>Only yours.</h1>
+                <p>Encrypt sensitive files before they reach storage. Your encryption password stays with you.</p>
+            </div>
+            <div class="story-note"><span class="status-dot"></span> AES-256-GCM file protection</div>
+        </section>
+
+        <section class="auth-panel" aria-labelledby="login-title">
+            <div class="auth-card">
+                <div class="mobile-brand"><span class="brand-mark" aria-hidden="true"></span> SecureVault</div>
+                <p class="eyebrow">WELCOME BACK</p>
+                <h2 id="login-title">Sign in to your vault</h2>
+                <p class="muted">Use your account password to continue.</p>
+                <div id="form-message" class="form-message" role="status" aria-live="polite" hidden></div>
+                <form id="login-form" class="form-stack">
+                    <label for="email">Email address</label>
+                    <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com"
+                        required maxlength="150">
+                    <label for="password">Account password</label>
+                    <input id="password" name="password" type="password" autocomplete="current-password"
+                        placeholder="Enter your password" required>
+                    <button class="button button-primary button-wide" type="submit">Sign in <span
+                            aria-hidden="true">&#8594;</span></button>
+                </form>
+                <p class="auth-switch">New to SecureVault? <a href="register.html">Create an account</a></p>
+            </div>
+            <footer class="auth-footer">Your account password and file encryption password are separate.</footer>
+        </section>
+    </main>
+</body>
+
+</html>

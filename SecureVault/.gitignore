@@ -1,0 +1,3 @@
+backend/target/
+storage/encrypted/*
+!storage/encrypted/.gitkeep

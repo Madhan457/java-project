@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f9fc">
+  <title>My Vault | SecureVault</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/dashboard.js" defer></script>
+</head>
+<body class="dashboard-page">
+  <header class="topbar">
+    <a class="brand" href="dashboard.html" aria-label="SecureVault dashboard">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>SecureVault</span>
+    </a>
+    <div class="account-actions">
+      <span class="account-avatar" id="account-avatar" aria-hidden="true">S</span>
+      <span class="account-name" id="account-name">Loading account</span>
+      <button class="button button-quiet" id="logout-button" type="button">Sign out</button>
+    </div>
+  </header>
+
+  <main class="dashboard-main">
+    <div class="page-heading">
+      <div>
+        <p class="eyebrow">YOUR PRIVATE WORKSPACE</p>
+        <h1>My vault</h1>
+        <p class="muted">Encrypt files before storing them. Only the correct file password can unlock them.</p>
+      </div>
+      <div class="security-chip"><span class="status-dot"></span> AES-256-GCM</div>
+    </div>
+
+    <div id="page-message" class="form-message page-message" role="status" aria-live="polite" hidden></div>
+
+    <section class="workspace-section" aria-labelledby="encrypt-heading">
+      <div class="section-heading">
+        <div class="section-number">01</div>
+        <div><h2 id="encrypt-heading">Encrypt a file</h2><p class="muted">A new random salt and IV are used for each file.</p></div>
+      </div>
+      <form id="encrypt-form" class="encrypt-form">
+        <label class="file-picker" for="file-input">
+          <span class="upload-symbol" aria-hidden="true">+</span>
+          <span class="file-picker-copy"><strong id="file-name">Choose a file</strong><span>Maximum file size: 100 MB</span></span>
+          <span class="button button-secondary" aria-hidden="true">Browse files</span>
+          <input id="file-input" name="file" type="file" required>
+        </label>
+        <div class="encrypt-controls">
+          <div class="field-grow">
+            <label for="encryption-password">File encryption password</label>
+            <input id="encryption-password" name="password" type="password" minlength="10" maxlength="72" autocomplete="new-password" placeholder="At least 10 characters" required>
+          </div>
+          <button id="encrypt-button" class="button button-primary" type="submit"><span aria-hidden="true">&#128274;</span> Encrypt file</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="workspace-section files-section" aria-labelledby="files-heading">
+      <div class="section-heading files-heading">
+        <div class="section-number">02</div>
+        <div><h2 id="files-heading">Your encrypted files</h2><p class="muted">Only files in your account are shown here.</p></div>
+        <button id="refresh-button" class="button button-secondary refresh-button" type="button" aria-label="Refresh file list" title="Refresh file list"><span aria-hidden="true">&#8635;</span> Refresh</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">File</th><th scope="col">Size</th><th scope="col">Encryption</th><th scope="col">Added</th><th scope="col"><span class="sr-only">Actions</span></th></tr></thead>
+          <tbody id="file-list"><tr><td class="table-state" colspan="5">Loading your files...</td></tr></tbody>
+        </table>
+      </div>
+      <div id="empty-files" class="empty-state" hidden>
+        <span class="empty-symbol" aria-hidden="true">&#9633;</span>
+        <h3>Your vault is empty</h3>
+        <p class="muted">Choose a file above to create your first encrypted copy.</p>
+      </div>
+    </section>
+    <p class="privacy-note">File encryption passwords are not stored. If you forget one, the original file cannot be recovered.</p>
+  </main>
+
+  <dialog id="decrypt-dialog" class="decrypt-dialog" aria-labelledby="decrypt-title">
+    <form id="decrypt-form" class="dialog-content">
+      <button id="close-dialog" class="dialog-close" type="button" aria-label="Close">&#215;</button>
+      <p class="eyebrow">FILE DECRYPTION</p>
+      <h2 id="decrypt-title">Unlock this file</h2>
+      <p class="muted" id="decrypt-filename"></p>
+      <div id="decrypt-message" class="form-message" role="status" aria-live="polite" hidden></div>
+      <label for="decrypt-password">File encryption password</label>
+      <input id="decrypt-password" name="password" type="password" autocomplete="current-password" required>
+      <div class="dialog-actions">
+        <button id="cancel-decrypt" class="button button-secondary" type="button">Cancel</button>
+        <button id="decrypt-button" class="button button-primary" type="submit">Decrypt &amp; download</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>
